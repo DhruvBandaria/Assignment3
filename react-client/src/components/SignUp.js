@@ -15,6 +15,7 @@ function SignUp(props) {
   const saveStudent = (e) => {
     setShowLoading(true);
     e.preventDefault();
+    console.log('saveStudent');
     const data = {
         studentNumber: student.studentNumber,
         password: student.password, 
@@ -49,7 +50,7 @@ function SignUp(props) {
         <Form onSubmit={saveStudent}>
         <Form.Group>
             <Form.Label>Student Number</Form.Label>
-            <Form.Control type="number" name="studentNumber" id="username" placeholder="Enter Student Number" value={student.studentNumber} onChange={onChange} />
+            <Form.Control type="number" name="studentNumber" id="studentNumber" placeholder="Enter Student Number" value={student.studentNumber} onChange={onChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label> First Name</Form.Label>
@@ -77,7 +78,7 @@ function SignUp(props) {
           </Form.Group>
           <Form.Group>
             <Form.Label>Program</Form.Label>
-            <Form.Control type="text" name="program" id="email" placeholder="Enter your Program" value={student.program} onChange={onChange} />
+            <Form.Control type="text" name="program" id="program" placeholder="Enter your Program" value={student.program} onChange={onChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Password</Form.Label>

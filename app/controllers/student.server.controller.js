@@ -44,9 +44,11 @@ exports.create = function (req, res, next) {
     student.save(function (err) {
         if (err) {
             // Call the next middleware with an error message
+			console.log('err');
             return next(err);
         } else {
             // Use the 'response' object to send a JSON response
+			console.log('no err pero walang json');
             res.json(student);
         }
     });
@@ -116,7 +118,7 @@ exports.authenticate = function(req, res, next) {
 	console.log(password)
 	console.log(username)
 	//find the user with given username using static method findOne
-	Student.findOne({username: username}, (err, user) => {
+	Student.findOne({studentNumber: username}, (err, user) => {
 			if (err) {
 				return next(err);
 			} else {
@@ -125,7 +127,7 @@ exports.authenticate = function(req, res, next) {
 			if(bcrypt.compareSync(password, user.password)) {
 				// Create a new token with the user id in the payload
   				// and which expires 300 seconds after issue
-				const token = jwt.sign({ id: user._id, username: user.username }, jwtKey, 
+				const token = jwt.sign({ id: user._id, studentNumber: user.username }, jwtKey, 
 					{algorithm: 'HS256', expiresIn: jwtExpirySeconds });
 				console.log('token:', token)
 				// set the cookie as the token string, with a similar max age as the token
@@ -140,6 +142,7 @@ exports.authenticate = function(req, res, next) {
 				//call the next middleware
 				next()
 			} else {
+				console.log('Invalid username/password!!!');
 				res.json({status:"error", message: "Invalid username/password!!!",
 				data:null});
 			}
