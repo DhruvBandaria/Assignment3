@@ -119,10 +119,10 @@ exports.authenticate = function(req, res, next) {
 	console.log(username)
 	//find the user with given username using static method findOne
 	Student.findOne({studentNumber: username}, (err, user) => {
-			if (err) {
+			if (user == null || err) {
+				//console.log('usererror')
 				return next(err);
 			} else {
-			console.log(user)
 			//compare passwords	
 			if(bcrypt.compareSync(password, user.password)) {
 				// Create a new token with the user id in the payload
@@ -135,9 +135,7 @@ exports.authenticate = function(req, res, next) {
 				res.cookie('token', token, { maxAge: jwtExpirySeconds * 1000,httpOnly: true});
 				res.status(200).send({ screen: user.username });
 				//
-				//res.json({status:"success", message: "user found!!!", data:{user:
-				//user, token:token}});
-				
+				//res.json({status:"success", message: "user found!!!", data:{user: user, token:token}});
 				req.user=user;
 				//call the next middleware
 				next()
