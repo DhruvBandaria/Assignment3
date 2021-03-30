@@ -14,6 +14,10 @@ import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+
+import AddCourse from './components/AddCourse';
+import CourseList from './components/CourseList';
+
 //
 function App() {
 
@@ -26,6 +30,8 @@ function App() {
             <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/signup">Sign Up</Nav.Link>
+            <Nav.Link href="/addcourse">Add Course</Nav.Link>
+            <Nav.Link href="/listall">View Course List</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -34,6 +40,8 @@ function App() {
           <Route render ={()=> < Home />} path="/home" />
           <Route render ={()=> < Login />} path="/login" />
           <Route render ={()=> < SignUp />} path="/signup" />
+          <Route render ={()=> < AddCourse />} path="/addcourse" />
+          <Route render ={()=> < CourseList />} path="/listall" />
       </div>
 
     </Router>

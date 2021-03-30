@@ -62,12 +62,11 @@ if (err) {
 });
 };
 //
-exports.articleByID = function (req, res, next, id) {
-    Course.findById(id).populate('creator', 'firstName lastName fullName').exec((err, course) => {if (err) return next(err);
-    if (!course) return next(new Error('Failed to load course '
-            + id));
+exports.courseById = function (req, res, next, id) {
+    Course.findById(id).populate('studentId', 'firstName lastName fullName').exec((err, course) => {if (err) return next(err);
+    if (!course) return next(new Error('Failed to load course '+ id));
         req.course = course;
-        console.log('in articleById:', req.course)
+        console.log('in courseById:', req.course)
         next();
     });
 };
@@ -80,7 +79,7 @@ exports.update = function (req, res) {
     console.log('in update:', req.course)
     const course = req.course;
     course.section = req.body.section;
-    course.content = req.body.content;
+    //course.content = req.body.content;
     course.save((err) => {
         if (err) {
             return res.status(400).send({
