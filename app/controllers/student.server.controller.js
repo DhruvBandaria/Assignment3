@@ -119,28 +119,29 @@ exports.authenticate = function(req, res, next) {
 	console.log(username)
 	//find the user with given username using static method findOne
 	Student.findOne({studentNumber: username}, (err, user) => {
-			if (user == null || err) {
-				//console.log('usererror')
+			if (err) {
 				return next(err);
 			} else {
+			console.log(user)
 			//compare passwords	
 			if(bcrypt.compareSync(password, user.password)) {
 				// Create a new token with the user id in the payload
   				// and which expires 300 seconds after issue
-				const token = jwt.sign({ id: user._id, studentNumber: user.username }, jwtKey, 
+				const token = jwt.sign({ id: user._id, username: user.studentNumber }, jwtKey, 
 					{algorithm: 'HS256', expiresIn: jwtExpirySeconds });
 				console.log('token:', token)
 				// set the cookie as the token string, with a similar max age as the token
 				// here, the max age is in milliseconds
 				res.cookie('token', token, { maxAge: jwtExpirySeconds * 1000,httpOnly: true});
-				res.status(200).send({ screen: user.username });
+				res.status(200).send({ screen: user.studentNumber });
 				//
-				//res.json({status:"success", message: "user found!!!", data:{user: user, token:token}});
+				//res.json({status:"success", message: "user found!!!", data:{user:
+				//user, token:token}});
+				
 				req.user=user;
 				//call the next middleware
 				next()
 			} else {
-				console.log('Invalid username/password!!!');
 				res.json({status:"error", message: "Invalid username/password!!!",
 				data:null});
 			}

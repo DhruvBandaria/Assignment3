@@ -30,6 +30,7 @@ function App(props) {
       //process the response
       if (res.data.screen !== undefined) {
         setScreen(res.data.screen);
+        //props.history.push('/home');
         console.log(res.data.screen);
       }
     } catch (e) {

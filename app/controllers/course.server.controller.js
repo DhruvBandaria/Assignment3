@@ -20,6 +20,7 @@ exports.create = function (req, res) {
     course.content = req.body.content;
     //article.creator = req.body.username;
     console.log(req.body)
+    console.log('here!!!!!!!!!!!!!!!');
     //
     //
     User.findOne({username: req.body.username}, (err, user) => {

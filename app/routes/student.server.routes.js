@@ -23,12 +23,12 @@ module.exports = function (app) {
     // app.param('userId', users.userByID);
     //authenticate user
     app.post('/signin', students.authenticate);
-    // app.get('/signout', users.signout);
-    // app.get('/read_cookie', users.isSignedIn);
+    app.get('/signout', students.signout);
+    app.get('/read_cookie', students.isSignedIn);
 
 
     //path to a protected page
-	// app.get('/welcome',users.welcome);
+	app.get('/welcome',students.welcome);
     
 };
 
