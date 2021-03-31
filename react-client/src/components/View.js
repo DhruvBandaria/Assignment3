@@ -59,7 +59,7 @@ function View (props) {
 
             <button onClick={deleteCookie}>Log out</button>
           </div>            
-        : <addCourse screen={screen} setScreen={setScreen} />
+        : <AddCourse screen={screen} setScreen={setScreen} />
       }
     </div>
   );

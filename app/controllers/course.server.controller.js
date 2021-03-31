@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Course = mongoose.model('Course');
-const User = require('mongoose').model('User');
+const Student = require('mongoose').model('Student');
 
 //
 function getErrorMessage(err) {
@@ -16,14 +16,17 @@ function getErrorMessage(err) {
 //
 exports.create = function (req, res) {
     const course = new Course();
-    course.title = req.body.title;
-    course.content = req.body.content;
+    console.log(req.body.courseCode);
+    course.courseCode = req.body.courseCode;
+    course.courseName = req.body.courseName;
+    course.section = req.body.section;
+    course.semester = req.body.semester;
     //article.creator = req.body.username;
     console.log(req.body)
     console.log('here!!!!!!!!!!!!!!!');
     //
     //
-    User.findOne({username: req.body.username}, (err, user) => {
+    Student.findOne({studentNumber: req.body.username}, (err, user) => {
 
         if (err) { return getErrorMessage(err); }
         //
@@ -33,7 +36,7 @@ exports.create = function (req, res) {
 	
     }).then( function () 
     {
-        course.creator = req.id
+        course.studentId = req.id
         console.log('req.user._id',req.id);
 
         course.save((err) => {

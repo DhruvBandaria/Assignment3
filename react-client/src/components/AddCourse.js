@@ -32,6 +32,7 @@ function AddCourse(props) {
     //
     const onChange = (e) => {
         e.persist();
+        console.log(e.target.value);
         setCourse({...course, [e.target.name]: e.target.value});
       }
     

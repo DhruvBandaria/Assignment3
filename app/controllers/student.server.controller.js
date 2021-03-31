@@ -217,7 +217,7 @@ exports.isSignedIn = (req, res) => {
 	  // otherwise, return a bad request error
 	  return res.status(400).end()
 	}
-  
+	console.log('User Okay');
 	// Finally, token is ok, return the username given in the token
 	res.status(200).send({ screen: payload.username });
 }
@@ -244,9 +244,11 @@ exports.requiresLogin = function (req, res, next) {
 	} catch (e) {
 	  if (e instanceof jwt.JsonWebTokenError) {
 		// if the error thrown is because the JWT is unauthorized, return a 401 error
+		console.log('error');
 		return res.status(401).end()
 	  }
 	  // otherwise, return a bad request error
+	  console.log('error');
 	  return res.status(400).end()
 	}
 	// user is authenticated
