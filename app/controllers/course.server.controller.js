@@ -26,7 +26,7 @@ exports.create = function (req, res) {
     console.log('here!!!!!!!!!!!!!!!');
     //
     //
-    Student.findOne({studentNumber: req.body.username}, (err, user) => {
+    Student.findOne({studentNumber: req.body.studentId}, (err, user) => {
 
         if (err) { return getErrorMessage(err); }
         //
@@ -47,7 +47,7 @@ exports.create = function (req, res) {
                     message: getErrorMessage(err)
                 });
             } else {
-                res.status(200).json(article);
+                res.status(200).json(course);
             }
         });
     
