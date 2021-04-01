@@ -6,7 +6,7 @@ var router = express.Router();
 module.exports = function (app) {
     // handle a get request made to /users path
     // and list users when /users link is selected
-    // app.get("/students",users.requiresLogin,users.list); //go to http://localhost:3000/users to see the list
+    app.get("/students", students.requiresLogin, students.list); //go to http://localhost:3000/users to see the list
     //handle a post request made to root path
     app.post('/', students.create);
     //
