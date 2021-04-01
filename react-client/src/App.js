@@ -14,9 +14,9 @@ import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-
 import AddCourse from './components/AddCourse';
 import CourseList from './components/CourseList';
+import ShowStudent from './components/ShowStudent';
 
 //
 function App() {
@@ -42,6 +42,7 @@ function App() {
           <Route render ={()=> < SignUp />} path="/signup" />
           <Route render ={()=> < AddCourse />} path="/addcourse" />
           <Route render ={()=> < CourseList />} path="/listall" />
+          <Route render ={()=> < ShowStudent />} path="/show/:id" />
       </div>
 
     </Router>

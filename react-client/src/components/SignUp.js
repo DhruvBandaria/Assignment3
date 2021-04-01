@@ -82,7 +82,7 @@ function SignUp(props) {
           </Form.Group>
           <Form.Group>
             <Form.Label>Password</Form.Label>
-            <Form.Control type="text" name="password" id="password" placeholder="Enter password" value={student.password} onChange={onChange} />
+            <Form.Control type="password" name="password" id="password" placeholder="Enter password" value={student.password} onChange={onChange} />
           </Form.Group>
           
           <Button variant="primary" type="submit">

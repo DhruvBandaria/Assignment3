@@ -11,16 +11,16 @@ module.exports = function (app) {
     app.post('/', students.create);
     //
     // Set up the 'users' parameterized routes 
-	// app.route('/users/:userId')
-    // .get(users.read)
-    // .put(users.update)
-    // .delete(users.delete)
+	app.route('/users/:userId')
+    .get(students.read)
+    .put(students.update)
+    .delete(students.delete)
     // Set up the 'userId' parameter middleware
     //All param callbacks will be called before any handler of 
     //any route in which the param occurs, and they will each 
     //be called only once in a request - response cycle, 
     //even if the parameter is matched in multiple routes
-    // app.param('userId', users.userByID);
+    app.param('userId', students.userByID);
     //authenticate user
     app.post('/signin', students.authenticate);
     app.get('/signout', students.signout);

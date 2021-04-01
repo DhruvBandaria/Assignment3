@@ -75,7 +75,7 @@ exports.read = function(req, res) {
 // 'userByID' controller method to find a user by its id
 exports.userByID = function (req, res, next, id) {
 	// Use the 'User' static 'findOne' method to retrieve a specific user
-	User.findOne({
+	Student.findOne({
         _id: id
 	}, (err, student) => {
 		if (err) {
