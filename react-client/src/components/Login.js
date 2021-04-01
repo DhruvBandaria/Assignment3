@@ -67,7 +67,7 @@ function App(props) {
     <div className="App">
       {screen === 'auth' 
         ? <div>
-          <label>Username: </label>
+          <label>Student Number: </label>
           <br/>
           <input type="text" onChange={e => setUsername(e.target.value)} />
           <br/>
