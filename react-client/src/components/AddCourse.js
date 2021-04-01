@@ -25,7 +25,7 @@ function AddCourse(props) {
         .then((result) => {
             setShowLoading(false);
             console.log('results from save course:',result.data)
-            props.history.push('/listall/')
+            //props.history.push('/listall/')
 
         }).catch((error) => setShowLoading(false));
     };
