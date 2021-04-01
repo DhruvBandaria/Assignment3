@@ -103,7 +103,7 @@ exports.update = function(req, res, next) {
 };
 // delete a user by id
 exports.delete = function(req, res, next) {
-    User.findByIdAndRemove(req.student.id, req.body, function (err, student) {
+    Student.findByIdAndRemove(req.student.id, req.body, function (err, student) {
       if (err) return next(err);
       res.json(student);
     });
