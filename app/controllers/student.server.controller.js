@@ -93,7 +93,7 @@ exports.userByID = function (req, res, next, id) {
 //update a user by id
 exports.update = function(req, res, next) {
     console.log(req.body);
-    Student.findByIdAndUpdate(req.user.id, req.body, function (err, student) {
+    Student.findByIdAndUpdate(req.student.id, req.body, function (err, student) {
       if (err) {
         console.log(err);
         return next(err);
