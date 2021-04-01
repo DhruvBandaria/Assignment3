@@ -46,9 +46,13 @@ function ShowStudent(props) {
         <span className="sr-only">Loading...</span>
       </Spinner> }    
       <Jumbotron>
-        <h1>Name: {data.firstName}, {data.lastName}</h1>
-        <p>Email: {data.email}</p>
+        <h1>Student Number: {data.studentNumber}</h1>
+        <p>Name: {data.firstName}, {data.lastName}</p>
         <p>Address: {data.address}</p>
+        <p>City: {data.city}</p>
+        <p>Phone Number: {data.phoneNumber}</p>
+        <p>Email: {data.email}</p>
+        <p>Program: {data.program}</p>
 
         <p>
           <Button type="button" variant="primary" onClick={() => { editStudent(data._id) }}>Edit</Button>&nbsp;
