@@ -26,7 +26,7 @@ function ShowArticle(props) {
 
   const editArticle = (id) => {
     props.history.push({
-      pathname: '/editarticle/' + id
+      pathname: '/editcourse/' + id
     });
   };
 
@@ -37,7 +37,7 @@ function ShowArticle(props) {
     axios.delete(apiUrl, course)
       .then((result) => {
         setShowLoading(false);
-        props.history.push('/listarticles')
+        props.history.push('/listall')
       }).catch((error) => setShowLoading(false));
   };
 
