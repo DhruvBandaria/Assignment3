@@ -19,6 +19,8 @@ import AddCourse from './components/AddCourse';
 import CourseList from './components/CourseList';
 import ShowStudent from './components/ShowStudent';
 import EditStudent from './components/EditStudent';
+import ShowCourse from './components/ShowCourse';
+import EditCourse from './components/EditCourse';
 
 //
 function App() {
@@ -48,6 +50,8 @@ function App() {
           <Route render ={()=> < CourseList />} path="/listall" />
           <Route render ={()=> < ShowStudent />} path="/show/:id" />
           <Route render ={()=> < EditStudent />} path="/edit/:id" />
+          <Route render ={()=> < ShowCourse />} path="/showcourse/:id" />
+          <Route render ={()=> < EditCourse />} path="/editcourse/:id" />
       </div>
 
     </Router>

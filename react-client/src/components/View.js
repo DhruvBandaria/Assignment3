@@ -1,4 +1,5 @@
 import AddCourse from './AddCourse';
+import CourseList from './CourseList';
 import React, { useState } from 'react';
 //
 import axios from 'axios';
@@ -10,6 +11,7 @@ function View (props) {
   const [data, setData] = useState();
   //
   const [course, setCourse] = useState('');
+  const [listAll, setListAll] = useState('');
   // called when user clicks on Logout button
   // to clear the cookie and set the screen state variable 
   // back to its initial state.
@@ -35,10 +37,17 @@ function View (props) {
   }
   //
   const listall = (username) => {
-
-    console.log('in lisArticles: ',username)
-    //setArticle('n')
-
+    console.log('in list course: ',username)
+    setListAll('y');
+    /*
+    return(
+      <div className="App">
+      {
+        <CourseList screen={screen} setScreen={setScreen} />
+      }
+      </div>
+    );
+  */
   }
   //
   const addCourse = () => {
@@ -49,17 +58,19 @@ function View (props) {
   //
   return (
     <div className="App">
-      {course !== 'y'
+      {
+      listAll !== 'y' ?
+        <CourseList screen={screen} setScreen={setScreen} /> :
+      course !== 'y'
         ? <div>
             <p>{screen}</p>
             <p>{data}</p>
             <button onClick={verifyCookie}>Verify Cookie</button>
             <button onClick={addCourse}>Add Course</button>
-            <button onClick={listall(data)}>List Courses</button>
-
+            <button onClick={listall(screen)}>List Courses</button>
             <button onClick={deleteCookie}>Log out</button>
           </div>            
-        : <AddCourse screen={screen} setScreen={setScreen} />
+        :  <AddCourse screen={screen} setScreen={setScreen} />
       }
     </div>
   );

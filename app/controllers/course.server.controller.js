@@ -55,7 +55,7 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-    Course.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, courses) => {
+    Course.find().sort('-courseCode').populate('studentId', 'firstName lastName fullName').exec((err, courses) => {
 if (err) {
         return res.status(400).send({
             message: getErrorMessage(err)
