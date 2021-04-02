@@ -6,22 +6,22 @@ import { withRouter } from 'react-router-dom';
 import Login from './Login';
 
 function ListArticles(props) {
+  const username = props.screen;
   const [data, setData] = useState([]);
   const [showLoading, setShowLoading] = useState(true);
   const apiUrl = "http://localhost:3000/api/courses";
 
   useEffect(() => {
     const fetchData = async () => {
-      axios.get(apiUrl)
+      axios.get(apiUrl,username)
         .then(result => {
           console.log('result.data:',result.data)
           //check if the user has logged in
           //if(result.data.screen !== 'auth')
           //{
-            
-            console.log('data in if:', result.data )
-            setData(result.data);
-            setShowLoading(false);
+              console.log('data in if:', result.data )
+              setData(result.data);
+              setShowLoading(false);
           //}
         }).catch((error) => {
           console.log('error in fetchData:', error)

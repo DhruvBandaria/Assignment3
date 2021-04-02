@@ -54,8 +54,9 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-    Course.find().sort('-courseCode').populate('studentId', 'firstName lastName fullName').exec((err, courses) => {
-if (err) {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'+req.body.studentId);
+    Course.find({studentNumber: req.body.studentId}).sort('-courseCode').populate('studentId', 'firstName lastName fullName').exec((err, courses) => {
+    if (err) {
         return res.status(400).send({
             message: getErrorMessage(err)
         });

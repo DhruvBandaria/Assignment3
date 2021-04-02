@@ -38,7 +38,7 @@ function View (props) {
   //
   const listall = (username) => {
     console.log('in list course: ',username)
-    setListAll('y');
+    //setListAll('y');
     /*
     return(
       <div className="App">
@@ -59,8 +59,6 @@ function View (props) {
   return (
     <div className="App">
       {
-      listAll !== 'y' ?
-        <CourseList screen={screen} setScreen={setScreen} /> :
       course !== 'y'
         ? <div>
             <p>{screen}</p>
@@ -70,7 +68,7 @@ function View (props) {
             <button onClick={listall(screen)}>List Courses</button>
             <button onClick={deleteCookie}>Log out</button>
           </div>            
-        :  <AddCourse screen={screen} setScreen={setScreen} />
+        : <CourseList screen={screen} setScreen={setScreen} />
       }
     </div>
   );

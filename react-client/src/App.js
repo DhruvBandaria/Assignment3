@@ -35,8 +35,6 @@ function App() {
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/signup">Sign Up</Nav.Link>
             <Nav.Link href="/list">List of Students</Nav.Link>
-            <Nav.Link href="/addcourse">Add Course</Nav.Link>
-            <Nav.Link href="/listall">View Course List</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
