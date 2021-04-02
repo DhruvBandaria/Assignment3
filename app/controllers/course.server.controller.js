@@ -23,7 +23,6 @@ exports.create = function (req, res) {
     course.semester = req.body.semester;
     //article.creator = req.body.username;
     console.log(req.body)
-    console.log('here!!!!!!!!!!!!!!!');
     //
     //
     Student.findOne({studentNumber: req.body.studentId}, (err, user) => {
@@ -90,7 +89,7 @@ exports.update = function (req, res) {
                 message: getErrorMessage(err)
             });
         } else {
-            res.status(200).json(article);
+            res.status(200).json(course);
         }
     });
 };
@@ -110,12 +109,12 @@ exports.delete = function (req, res) {
 //The hasAuthorization() middleware uses the req.article and req.user objects
 //to verify that the current user is the creator of the current article
 exports.hasAuthorization = function (req, res, next) {
-    console.log('in hasAuthorization - creator: ',req.course.creator)
+    console.log('in hasAuthorization - creator: ',req.course.studentId.id)
     console.log('in hasAuthorization - user: ',req.id)
     //console.log('in hasAuthorization - user: ',req.user._id)
 
 
-    if (req.article.creator.id !== req.id) {
+    if (req.course.studentId.id !== req.id) {
         return res.status(403).send({
             message: 'User is not authorized'
         });
