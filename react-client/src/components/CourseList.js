@@ -31,6 +31,7 @@ function ListArticles(props) {
   }, []);
 
   const showDetail = (id) => {
+    console.log('asddddddddd'+id);
     props.history.push({
       pathname: '/showcourse/' + id
     });

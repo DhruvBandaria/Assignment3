@@ -37,7 +37,7 @@ function ShowArticle(props) {
     axios.delete(apiUrl, course)
       .then((result) => {
         setShowLoading(false);
-        props.history.push('/listall')
+        props.history.push('/login')
       }).catch((error) => setShowLoading(false));
   };
 

@@ -9,9 +9,10 @@ function CourseByStudent(props) {
   const username = props.screen;
   const [data, setData] = useState([]);
   const [showLoading, setShowLoading] = useState(true);
-  const apiUrl = "http://localhost:3000/api/courses/" + props.screen;
+  const apiUrl = "http://localhost:3000/api/courses/bystudent/" + username
 
   useEffect(() => {
+    console.log(apiUrl);
     const fetchData = async () => {
       axios.get(apiUrl,username)
         .then(result => {
@@ -31,6 +32,7 @@ function CourseByStudent(props) {
   }, []);
 
   const showDetail = (id) => {
+    console.log(id);
     props.history.push({
       pathname: '/showcourse/' + id
     });
@@ -49,7 +51,7 @@ function CourseByStudent(props) {
             ))}
           </ListGroup>
         </div>
-        : < Login />
+        : <p>Student Not registered with any course</p>
       }
     </div>
 

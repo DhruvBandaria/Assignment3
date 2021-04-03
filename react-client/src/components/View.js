@@ -64,11 +64,9 @@ function View (props) {
   return (
     <div className="App">
       <div>
-          <p>{screen}</p>
-          <p>{data}</p>
           {/* <Button type="button" variant="outline-primary" onClick={verifyCookie}>Verify Cookie</Button>&nbsp; */}
           <Button type="button" variant="outline-primary" onClick={addCourse}>Add Course</Button>&nbsp;
-          {/* <button onClick={listByStudent}>List Courses By Student</button> */}
+          { <Button variant="outline-secondary" onClick={listByStudent}>List Courses By Student</Button>}
           <Button type="button" variant="outline-secondary" onClick={listall}>List All Courses</Button>&nbsp;
           <Button type="button" variant="outline-danger" onClick={deleteCookie}>Log out</Button>
         </div>

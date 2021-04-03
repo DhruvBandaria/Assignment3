@@ -55,8 +55,7 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'+req.body.studentId);
-    Course.find({studentNumber: req.body.studentId}).sort('-courseCode').populate('studentId', 'firstName lastName fullName').exec((err, courses) => {
+    Course.find().sort('-courseCode').populate('studentId', 'firstName lastName fullName').exec((err, courses) => {
     if (err) {
         return res.status(400).send({
             message: getErrorMessage(err)
@@ -66,8 +65,8 @@ exports.list = function (req, res) {
     }
 });
 };
-//
-exports.courseById = function (req, res, next, id) {
+
+exports.courseById = function (req, res, next,id) {
     console.log('in courseByID', req.body);
     Course.findById(id).populate('studentId', 'firstName lastName fullName')
     .exec((err, course) => {if (err) return next(err);
@@ -75,6 +74,17 @@ exports.courseById = function (req, res, next, id) {
         req.course = course;
         console.log('in courseById:', req.course)
         next();
+    });
+};
+//
+exports.courseByStudentId = function (req, res, next) {
+    console.log('in courseByID'+req.student);
+    Course.find({studentId: req.student._id}).populate('studentId', 'firstName lastName fullName')
+    .exec((err, course) => {if (err) return next(err);
+    if (!course) return next(new Error('Failed to load course '+ id));
+        req.course = course;
+        console.log('in courseById Inner:', req.course)
+        res.status(200).json(course);
     });
 };
 //

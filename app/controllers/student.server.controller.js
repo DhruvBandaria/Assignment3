@@ -90,6 +90,23 @@ exports.userByID = function (req, res, next, id) {
 		}
 	});
 };
+exports.userByUsername = function (req, res, next, username) {
+	// Use the 'User' static 'findOne' method to retrieve a specific user
+	Student.findOne({
+        studentNumber: username
+	}, (err, student) => {
+		if (err) {
+			// Call the next middleware with an error message
+			return next(err);
+		} else {
+			// Set the 'req.user' property
+            req.student = student;
+            console.log(student);
+			// Call the next middleware
+			next();
+		}
+	});
+};
 //update a user by id
 exports.update = function(req, res, next) {
     console.log(req.body);
