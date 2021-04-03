@@ -13,6 +13,6 @@ module.exports = function (app) {
         //
         // app.param('courseId', course.courseById);
         // app.route('/api/courses/bystudent')
-        app.route('/api/courses/:studentId')
-            .get(course.courseById);
+        // app.route('/api/courses/:studentId')
+        //     .get(course.courseById);
 };

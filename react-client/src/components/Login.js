@@ -75,7 +75,7 @@ function App(props) {
           <br/>
           <input type="password" onChange={e => setPassword(e.target.value)} />
           <br/>
-          <button onClick={auth}>Login</button>
+          <Button type="button" variant="outline-primary" onClick={auth}>Login</Button>
         </div>
         : <View screen={screen} setScreen={setScreen} />
       }

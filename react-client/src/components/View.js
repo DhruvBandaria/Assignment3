@@ -2,6 +2,7 @@ import AddCourse from './AddCourse';
 import CourseList from './CourseList';
 import CourseByStudent from './CourseByStudent';
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 //
 import axios from 'axios';
 //
@@ -38,7 +39,12 @@ function View (props) {
   }
   //
     const listall = () => {
+    if (course !== 'allcourses'){
     setCourse('allcourses')
+    }
+    else if(course === 'allcourses'){
+      setCourse(' ')
+    }
   }
   //
   const listByStudent = () => {
@@ -46,9 +52,13 @@ function View (props) {
   }
   //
   const addCourse = () => {
+    if (course !== 'add'){
     console.log('in add course')
     setCourse('add')
-
+    }
+    else if(course === 'add'){
+      setCourse(' ')
+    }
   }
   //
   return (
@@ -56,11 +66,11 @@ function View (props) {
       <div>
           <p>{screen}</p>
           <p>{data}</p>
-          <button onClick={verifyCookie}>Verify Cookie</button>
-          <button onClick={addCourse}>Add Course</button>
+          {/* <Button type="button" variant="outline-primary" onClick={verifyCookie}>Verify Cookie</Button>&nbsp; */}
+          <Button type="button" variant="outline-primary" onClick={addCourse}>Add Course</Button>&nbsp;
           {/* <button onClick={listByStudent}>List Courses By Student</button> */}
-          <button onClick={listall}>List All Courses</button>
-          <button onClick={deleteCookie}>Log out</button>
+          <Button type="button" variant="outline-secondary" onClick={listall}>List All Courses</Button>&nbsp;
+          <Button type="button" variant="outline-danger" onClick={deleteCookie}>Log out</Button>
         </div>
       {
       course === 'add'

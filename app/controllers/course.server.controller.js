@@ -79,6 +79,7 @@ exports.courseById = function (req, res, next, id) {
 };
 //
 exports.read = function (req, res) {
+    console.log('course.read', req.course);
     res.status(200).json(req.course);
 };
 //
