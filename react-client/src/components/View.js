@@ -40,35 +40,54 @@ function View (props) {
     const listall = () => {
     //console.log('in list course: ',username)
     //setListAll('y');
-    return(
-      <div className="App">
-      {
-        <CourseList screen={screen} setScreen={setScreen} />
-      }
-      </div>
-    );
+    setCourse('list')
+    // return(
+    //   // <div className="App">
+    //   // {
+    //   //   <CourseList screen={screen} setScreen={setScreen} />
+    //   // }
+    //   // </div>
+    //   <div className="App">
+    //   {
+    //   course !== 'l'
+    //     ? <div>
+    //         <h1> test </h1>
+    //       </div>            
+    //     // : <CourseList screen={screen} setScreen={setScreen} />
+    //     : <CourseList screen={screen} setScreen={setScreen} />
+    //   }
+    // </div>
+    // );
   }
   //
   const addCourse = () => {
     console.log('in add course')
-    setCourse('y')
+    setCourse('add')
 
   }
   //
   return (
     <div className="App">
+      <div>
+          <p>{screen}</p>
+          <p>{data}</p>
+          <button onClick={verifyCookie}>Verify Cookie</button>
+          <button onClick={addCourse}>Add Course</button>
+          <button onClick={listall}>List Courses</button>
+          <button onClick={deleteCookie}>Log out</button>
+        </div>
       {
-      course !== 'y'
-        ? <div>
-            <p>{screen}</p>
-            <p>{data}</p>
-            <button onClick={verifyCookie}>Verify Cookie</button>
-            <button onClick={addCourse}>Add Course</button>
-            <button onClick={listall(screen)}>List Courses</button>
-            <button onClick={deleteCookie}>Log out</button>
-          </div>            
+      course === 'add'
+        ? <AddCourse screen={screen} setScreen={setScreen} />
         // : <CourseList screen={screen} setScreen={setScreen} />
-        : <AddCourse screen={screen} setScreen={setScreen} />
+        : <h1> </h1>
+      }
+
+      {
+      course === 'list'
+        ? <CourseList screen={screen} setScreen={setScreen} />
+        // : <CourseList screen={screen} setScreen={setScreen} />
+        : <h1> </h1>
       }
     </div>
   );
