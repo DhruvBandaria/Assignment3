@@ -82,17 +82,25 @@ exports.read = function (req, res) {
 //
 exports.update = function (req, res) {
     console.log('in update:', req.course)
-    const course = req.course;
-    course.section = req.body.section;
+    // const course = req.course;
+    // course.section = req.body.section;
     //course.content = req.body.content;
-    course.save((err) => {
-        if (err) {
-            return res.status(400).send({
-                message: getErrorMessage(err)
-            });
-        } else {
-            res.status(200).json(course);
-        }
+    // course.save((err) => {
+    //     if (err) {
+    //         return res.status(400).send({
+    //             message: getErrorMessage(err)
+    //         });
+    //     } else {
+    //         res.status(200).json(course);
+    //     }
+    // });
+    console.log(req.body);
+    Course.findByIdAndUpdate(req.course.id, req.body, function (err, course) {
+      if (err) {
+        console.log(err);
+        return next(err);
+      }
+      res.json(course);
     });
 };
 //

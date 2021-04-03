@@ -79,14 +79,12 @@ function View (props) {
       {
       course === 'add'
         ? <AddCourse screen={screen} setScreen={setScreen} />
-        // : <CourseList screen={screen} setScreen={setScreen} />
         : <h1> </h1>
       }
 
       {
       course === 'list'
         ? <CourseList screen={screen} setScreen={setScreen} />
-        // : <CourseList screen={screen} setScreen={setScreen} />
         : <h1> </h1>
       }
     </div>

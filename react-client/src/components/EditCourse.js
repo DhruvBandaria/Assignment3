@@ -53,11 +53,11 @@ function EditArticle(props) {
         <Form onSubmit={updateCourse}>
           <Form.Group>
                 <Form.Label> Course Code</Form.Label>
-                <Form.Control type="text" readOnly="true" name="courseCode" id="title" placeholder="Enter course code" value={course.courseCode} onChange={onChange} />
+                <Form.Control type="text" name="courseCode" id="title" placeholder="Enter course code" value={course.courseCode} onChange={onChange} />
               </Form.Group>
               <Form.Group>
                 <Form.Label> Course Name</Form.Label>
-                <Form.Control type="text" readOnly="true" name="courseName" id="title" placeholder="Enter course name" value={course.courseName} onChange={onChange} />
+                <Form.Control type="text" name="courseName" id="title" placeholder="Enter course name" value={course.courseName} onChange={onChange} />
               </Form.Group>
               <Form.Group>
                 <Form.Label> Section</Form.Label>
@@ -65,10 +65,10 @@ function EditArticle(props) {
               </Form.Group>
               <Form.Group>
                 <Form.Label> Semester</Form.Label>
-                <Form.Control type="number" readOnly="true" name="semester" id="title" placeholder="Enter semester number" value={course.semester} onChange={onChange} />
+                <Form.Control type="number" name="semester" id="title" placeholder="Enter semester number" value={course.semester} onChange={onChange} />
               </Form.Group>
           <Button variant="primary" type="submit">
-            Update Article
+            Update Course
           </Button>
         </Form>
       </Jumbotron>

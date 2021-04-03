@@ -52,7 +52,7 @@ function ShowArticle(props) {
         <p>Section: {data.section}</p>
         <p>Semester: {data.semester}</p>
         <p>
-          <Button type="button" variant="primary" onClick={() => { editArticle(data._id) }}>Change Section</Button>&nbsp;
+          <Button type="button" variant="primary" onClick={() => { editArticle(data._id) }}>Change Course Details</Button>&nbsp;
           <Button type="button" variant="danger" onClick={() => { deleteArticle(data._id) }}>Drop Course</Button>
         </p>
       </Jumbotron>
