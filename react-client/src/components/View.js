@@ -1,5 +1,6 @@
 import AddCourse from './AddCourse';
 import CourseList from './CourseList';
+import CourseByStudent from './CourseByStudent';
 import React, { useState } from 'react';
 //
 import axios from 'axios';
@@ -36,28 +37,12 @@ function View (props) {
     }
   }
   //
-  // const listall = (username) => {
     const listall = () => {
-    //console.log('in list course: ',username)
-    //setListAll('y');
-    setCourse('list')
-    // return(
-    //   // <div className="App">
-    //   // {
-    //   //   <CourseList screen={screen} setScreen={setScreen} />
-    //   // }
-    //   // </div>
-    //   <div className="App">
-    //   {
-    //   course !== 'l'
-    //     ? <div>
-    //         <h1> test </h1>
-    //       </div>            
-    //     // : <CourseList screen={screen} setScreen={setScreen} />
-    //     : <CourseList screen={screen} setScreen={setScreen} />
-    //   }
-    // </div>
-    // );
+    setCourse('allcourses')
+  }
+  //
+  const listByStudent = () => {
+    setCourse('coursesbystudent')
   }
   //
   const addCourse = () => {
@@ -73,7 +58,8 @@ function View (props) {
           <p>{data}</p>
           <button onClick={verifyCookie}>Verify Cookie</button>
           <button onClick={addCourse}>Add Course</button>
-          <button onClick={listall}>List Courses</button>
+          <button onClick={listByStudent}>List Courses By Student</button>
+          <button onClick={listall}>List All Courses</button>
           <button onClick={deleteCookie}>Log out</button>
         </div>
       {
@@ -83,8 +69,14 @@ function View (props) {
       }
 
       {
-      course === 'list'
+      course === 'allcourses'
         ? <CourseList screen={screen} setScreen={setScreen} />
+        : <h1> </h1>
+      }
+
+      {
+      course === 'coursesbystudent'
+        ? <CourseByStudent screen={screen} setScreen={setScreen} />
         : <h1> </h1>
       }
     </div>

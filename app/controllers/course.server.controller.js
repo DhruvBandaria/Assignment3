@@ -68,7 +68,9 @@ exports.list = function (req, res) {
 };
 //
 exports.courseById = function (req, res, next, id) {
-    Course.findById(id).populate('studentId', 'firstName lastName fullName').exec((err, course) => {if (err) return next(err);
+    console.log('in courseByID', req.body);
+    Course.findById(id).populate('studentId', 'firstName lastName fullName')
+    .exec((err, course) => {if (err) return next(err);
     if (!course) return next(new Error('Failed to load course '+ id));
         req.course = course;
         console.log('in courseById:', req.course)
