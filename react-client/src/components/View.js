@@ -36,10 +36,10 @@ function View (props) {
     }
   }
   //
-  const listall = (username) => {
-    console.log('in list course: ',username)
+  // const listall = (username) => {
+    const listall = () => {
+    //console.log('in list course: ',username)
     //setListAll('y');
-    /*
     return(
       <div className="App">
       {
@@ -47,7 +47,6 @@ function View (props) {
       }
       </div>
     );
-  */
   }
   //
   const addCourse = () => {
@@ -68,7 +67,8 @@ function View (props) {
             <button onClick={listall(screen)}>List Courses</button>
             <button onClick={deleteCookie}>Log out</button>
           </div>            
-        : <CourseList screen={screen} setScreen={setScreen} />
+        // : <CourseList screen={screen} setScreen={setScreen} />
+        : <AddCourse screen={screen} setScreen={setScreen} />
       }
     </div>
   );

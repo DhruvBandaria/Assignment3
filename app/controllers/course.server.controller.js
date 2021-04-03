@@ -29,6 +29,7 @@ exports.create = function (req, res) {
 
         if (err) { return getErrorMessage(err); }
         //
+        console.log('studentNumber', user.studentNumber);
         req.id = user._id;
         console.log('user._id',req.id);
 
